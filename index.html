@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Way | Consultorio Dental en El Alto</title>
+    <meta name="description" content="Consultorio Dental Dental Way en El Alto. Especialistas en Ortodoncia, Diseño de Sonrisa y Odontología General. Sucursales en La Ceja, Río Seco y Cruce Villa Adela.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#00b4d8',
+                            600: '#0077b6',
+                            700: '#03045e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00b4d8;
+            border-radius: 4px;
+        }
+        
+        /* Image Compare Slider */
+        .img-comp-container {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .img-comp-img {
+            position: absolute;
+            width: auto;
+            height: 100%;
+            overflow: hidden;
+        }
+        .img-comp-img img {
+            display: block;
+            height: 100%;
+            max-width: none;
+        }
+        .img-comp-slider {
+            position: absolute;
+            z-index: 9;
+            cursor: ew-resize;
+            width: 40px;
+            height: 40px;
+            background-color: #0077b6;
+            opacity: 0.9;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Top Info Bar -->
+    <div class="bg-brand-700 text-white text-xs py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-brand-500"></i> Lunes a Sábado: 08:30 - 20:00</span>
+                <span class="hidden sm:flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-500"></i> Odontología 100% Garantizada</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="flex items-center gap-1"><i data-lucide="phone" class="w-3.5 h-3.5 text-brand-500"></i> Emergencias: +591 69973619</span>
+                <div class="flex gap-2 ml-2">
+                    <a href="#" class="hover:text-brand-500 transition"><i data-lucide="facebook" class="w-3.5 h-3.5"></i></a>
+                    <a href="#" class="hover:text-brand-500 transition"><i data-lucide="instagram" class="w-3.5 h-3.5"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-500 flex items-center justify-center text-white shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i data-lucide="smile" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-slate-900 block leading-none">DENTAL <span class="text-brand-600">WAY</span></span>
+                        <span class="text-[10px] font-semibold text-brand-500 uppercase tracking-widest">Consultorio Especializado</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600 text-sm">
+                    <a href="#inicio" class="hover:text-brand-600 transition">Inicio</a>
+                    <a href="#servicios" class="hover:text-brand-600 transition">Servicios</a>
+                    <a href="#sucursales" class="hover:text-brand-600 transition">Sucursales</a>
+                    <a href="#resultados" class="hover:text-brand-600 transition">Resultados</a>
+                    <a href="#cotizador" class="hover:text-brand-600 transition">Cotizador</a>
+                    <a href="#faq" class="hover:text-brand-600 transition">Preguntas</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="https://wa.me/59169973619?text=Hola%20Dental%20Way,%20quisiera%20agendar%20una%20consulta" target="_blank" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md shadow-green-500/20 hover:shadow-lg transition-all text-sm">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i> Agendar WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-brand-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-slate-700 font-medium border-b border-slate-50">Inicio</a>
+            <a href="#servicios" class="block py-2 text-slate-700 font-medium border-b border-slate-50">Servicios</a>
+            <a href="#sucursales" class="block py-2 text-slate-700 font-medium border-b border-slate-50">Sucursales</a>
+            <a href="#resultados" class="block py-2 text-slate-700 font-medium border-b border-slate-50">Resultados</a>
+            <a href="#cotizador" class="block py-2 text-slate-700 font-medium border-b border-slate-50">Cotizador</a>
+            <a href="#faq" class="block py-2 text-slate-700 font-medium border-b border-slate-50">Preguntas</a>
+            <a href="https://wa.me/59169973619?text=Hola%20Dental%20Way,%20quisiera%20agendar%20una%20consulta" target="_blank" class="w-full flex items-center justify-center gap-2 bg-green-500 text-white font-semibold py-3 rounded-xl mt-4">
+                <i data-lucide="message-circle" class="w-5 h-5"></i> Agendar Cita por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-brand-50/50 via-white to-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-100/80 text-brand-700 text-xs font-bold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+                        3 Sucursales Cerca de Ti en El Alto
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight">
+                        Tu sonrisa perfecta <br class="hidden sm:inline"/>
+                        empieza en <span class="bg-gradient-to-r from-brand-600 to-brand-500 bg-clip-text text-transparent">Dental Way</span>
+                    </h1>
+                    
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Cuidamos tu salud bucal con la más avanzada tecnología y odontólogos altamente capacitados. Visítanos en nuestras sedes de **La Ceja**, **Río Seco** o **Cruce Villa Adela**.
+                    </p>
+
+                    <!-- Features Highlights -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 max-w-lg mx-auto lg:mx-0 text-left">
+                        <div class="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-500"></i> Diagnóstico Digital
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-500"></i> Precios Accesibles
+                        </div>
+                        <div class="flex items-center gap-2 text-sm text-slate-700 font-medium">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-brand-500"></i> Sin Dolor
+                        </div>
+                    </div>
+
+                    <!-- CTA Group -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contacto" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-xl transition-all">
+                            <i data-lucide="calendar" class="w-5 h-5"></i> Reservar Evaluación
+                        </a>
+                        <a href="#sucursales" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 font-semibold px-8 py-4 rounded-xl transition-all">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-600"></i> Ver Ubicaciones
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic / Cards -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -top-4 -left-4 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                        
+                        <div class="relative bg-white p-3 rounded-3xl shadow-2xl border border-slate-100">
+                            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" 
+                                 alt="Consultorio Dental Way" 
+                                 class="rounded-2xl w-full h-[400px] object-cover"
+                                 onerror="this.src='https://placehold.co/800x600/0077b6/FFFFFF?text=Dental+Way+Consultorio'">
+                            
+                            <!-- Floating Badge -->
+                            <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 hidden sm:flex">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600">
+                                    <i data-lucide="users" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-2xl font-black text-slate-800">+1,500</p>
+                                    <p class="text-xs text-slate-500 font-medium">Pacientes Satisfechos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Bar -->
+    <section class="bg-brand-600 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold block">3</span>
+                    <span class="text-brand-100 text-xs sm:text-sm uppercase tracking-wider font-medium">Sucursales en El Alto</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold block">+8 Años</span>
+                    <span class="text-brand-100 text-xs sm:text-sm uppercase tracking-wider font-medium">Experiencia Odontológica</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold block">100%</span>
+                    <span class="text-brand-100 text-xs sm:text-sm uppercase tracking-wider font-medium">Esterilización Certificada</span>
+                </div>
+                <div>
+                    <span class="text-3xl sm:text-4xl font-extrabold block">4.9 ★</span>
+                    <span class="text-brand-100 text-xs sm:text-sm uppercase tracking-wider font-medium">Valoración Pacientes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Tratamientos Integrales</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Nuestros Servicios Odontológicos</h2>
+                <p class="text-slate-600 mt-3">Ofrecemos soluciones personalizadas utilizando tecnología moderna y materiales de alta calidad.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i data-lucide="sparkles" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Diseño de Sonrisa</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Transforma completamente la estética de tu boca mediante carillas de resina o porcelana adaptadas a tu rostro.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600">Evaluación digital</span>
+                        <a href="#contacto" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i data-lucide="activity" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Ortodoncia / Brackets</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Alineación dental con brackets metálicos, estéticos (zafiro) o alineadores invisibles para niños y adultos.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600">Planes de pago flexibles</span>
+                        <a href="#contacto" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i data-lucide="sun" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Blanqueamiento Dental</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Aclara varios tonos de tus dientes en solo una sesión de 45 minutos con tecnología led ultra segura.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600">Resultados inmediatos</span>
+                        <a href="#contacto" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i data-lucide="shield" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Odontología General</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Limpieza profiláctica ultrasónica, calzas estéticas de resina, eliminación de sarro y prevención de caries.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600">Salud preventiva</span>
+                        <a href="#contacto" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i data-lucide="heart-pulse" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Endodoncia Sin Dolor</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Salva tus piezas dentales con inflamación o infección severa mediante tratamiento de conductos computarizado.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600">Anestesia localizada</span>
+                        <a href="#contacto" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col justify-between group">
+                    <div>
+                        <div class="w-14 h-14 bg-brand-50 text-brand-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                            <i data-lucide="baby" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Odontopediatría</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Atención cariñosa y especializada para niños con ambientes acondicionados y técnicas de relajación dental.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-50 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-brand-600">Especial para niños</span>
+                        <a href="#contacto" class="text-slate-400 hover:text-brand-600 transition"><i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Sucursales / Branches Section -->
+    <section id="sucursales" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Encuéntranos Cerca</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Nuestras 3 Sucursales</h2>
+                <p class="text-slate-600 mt-2">Selecciona la sucursal más conveniente para revisar su ubicación exacta y horarios.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="switchBranch('ceja')" id="tab-ceja" class="branch-tab active px-6 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2 bg-brand-600 text-white shadow-md">
+                    <i data-lucide="building" class="w-4 h-4"></i> La Ceja (Hotel Alexander)
+                </button>
+                <button onclick="switchBranch('rioseco')" id="tab-rioseco" class="branch-tab px-6 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2 bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i> Río Seco
+                </button>
+                <button onclick="switchBranch('villadela')" id="tab-villadela" class="branch-tab px-6 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2 bg-slate-100 text-slate-600 hover:bg-slate-200">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i> Cruce Villa Adela
+                </button>
+            </div>
+
+            <!-- Branch Details Container -->
+            <div class="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                
+                <!-- Sucursal La Ceja -->
+                <div id="branch-ceja" class="branch-content grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-bold rounded-lg uppercase">
+                            Sucursal Principal
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900">Sucursal La Ceja</h3>
+                        <p class="text-slate-600 text-sm">Ubicación céntrica y de fácil acceso desde cualquier punto de la ciudad o transporte público.</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Dirección:</strong>
+                                    Al lado del Hotel Alexander, Edificio La Jungla, Piso 2, Of. 201.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="phone" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Teléfonos:</strong>
+                                    +591 2 2840000 / WhatsApp: +591 70000001
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="clock" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Horarios de Atención:</strong>
+                                    Lunes a Sábado: 08:30 - 20:00 (Continuo)
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/59170000001?text=Hola,%20deseo%20agendar%20en%20la%20sucursal%20La%20Ceja" target="_blank" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Reservar en La Ceja
+                        </a>
+                    </div>
+
+                    <div class="lg:col-span-7 h-[350px] rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                        <!-- Simulated Google Maps Iframe for La Ceja -->
+                        <iframe class="w-full h-full border-0" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.412356!2d-68.1620!3d-16.5050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTYnw5DCsDMwJzE4LjAiUyA2OMKwMDknNDMuMiJX!5e0!3m2!1ses!2sbo!4v1620000000000!5m2!1ses!2sbo" 
+                                allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Sucursal Rio Seco -->
+                <div id="branch-rioseco" class="branch-content hidden grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-bold rounded-lg uppercase">
+                            Zona Norte El Alto
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900">Sucursal Río Seco</h3>
+                        <p class="text-slate-600 text-sm">Instalaciones amplias frente a vías principales para tu comodidad.</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Dirección:</strong>
+                                    Av. Juan Pablo II, Sector Ex-Tranca Río Seco, Edificio Comercial Nro. 45.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="phone" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Teléfonos:</strong>
+                                    +591 2 2850000 / WhatsApp: +591 70000002
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="clock" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Horarios de Atención:</strong>
+                                    Lunes a Sábado: 09:00 - 19:30
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/59170000002?text=Hola,%20deseo%20agendar%20en%20la%20sucursal%20Río%20Seco" target="_blank" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Reservar en Río Seco
+                        </a>
+                    </div>
+
+                    <div class="lg:col-span-7 h-[350px] rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                        <iframe class="w-full h-full border-0" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.100000!2d-68.2000!3d-16.4800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTYnw5DCsDI4JzE0LjAiUyA2OMKwMTInMDAuMCJX!5e0!3m2!1ses!2sbo!4v1620000000000!5m2!1ses!2sbo" 
+                                allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Sucursal Cruce Villa Adela -->
+                <div id="branch-villadela" class="branch-content hidden grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-bold rounded-lg uppercase">
+                            Zona Sur El Alto
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-slate-900">Sucursal Cruce Villa Adela</h3>
+                        <p class="text-slate-600 text-sm">Atención dental especializada para toda la zona sur de El Alto.</p>
+                        
+                        <div class="space-y-4 text-sm text-slate-700">
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Dirección:</strong>
+                                    Av. Bolivia, Cruce Villa Adela, Galería El Carmen, Local 5.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="phone" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Teléfonos:</strong>
+                                    +591 2 2860000 / WhatsApp: +591 70000003
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-white shadow-sm flex items-center justify-center text-brand-600 shrink-0">
+                                    <i data-lucide="clock" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <strong class="block text-slate-900">Horarios de Atención:</strong>
+                                    Lunes a Sábado: 08:30 - 20:00
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/59170000003?text=Hola,%20deseo%20agendar%20en%20la%20sucursal%20Villa%20Adela" target="_blank" class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition">
+                            <i data-lucide="calendar" class="w-4 h-4"></i> Reservar en Villa Adela
+                        </a>
+                    </div>
+
+                    <div class="lg:col-span-7 h-[350px] rounded-2xl overflow-hidden shadow-md border border-slate-200">
+                        <iframe class="w-full h-full border-0" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.200000!2d-68.1800!3d-16.5200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTYnw5DCsDMxJzEyLjAiUyA2OMKwMTAnNDguMCJX!5e0!3m2!1ses!2sbo!4v1620000000000!5m2!1ses!2sbo" 
+                                allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Before / After Gallery & Evidence -->
+    <section id="resultados" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Casos Reales</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Evidencia de Nuestros Resultados</h2>
+                <p class="text-slate-600 mt-2">Mueve el deslizador horizontal para comparar el Antes y Después de nuestros tratamientos reales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                
+                <!-- Interactive Comparison Slider Box -->
+                <div class="bg-white p-4 rounded-3xl shadow-md border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-800 mb-3 text-center">Diseño de Sonrisa & Blanqueamiento</h3>
+                    
+                    <div class="img-comp-container relative select-none">
+                        <!-- Before Image -->
+                        <div class="img-comp-img">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800" alt="Antes Tratamiento Dental" onerror="this.src='https://placehold.co/800x600/94a3b8/FFFFFF?text=Antes'">
+                        </div>
+                        <!-- After Image Overlay -->
+                        <div class="img-comp-img img-comp-overlay" id="overlay-img" style="width: 50%;">
+                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800" alt="Después Tratamiento Dental" onerror="this.src='https://placehold.co/800x600/0077b6/FFFFFF?text=Después'">
+                        </div>
+                        <div class="img-comp-slider" id="slider-bar">
+                            <i data-lucide="move-horizontal" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="flex justify-between text-xs font-bold text-slate-500 mt-3 px-2">
+                        <span>← ANTES</span>
+                        <span>DESPUÉS →</span>
+                    </div>
+                </div>
+
+                <!-- Testimonials Cards -->
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex items-center gap-1 text-amber-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic mb-4">
+                            "Tenía mucho miedo de ponerme brackets, pero en la sucursal de La Ceja me atendieron con mucha paciencia. ¡Los cambios en mi sonrisa en solo 6 meses son increíbles!"
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 font-bold flex items-center justify-center text-sm">
+                                MP
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">María Quispe</h4>
+                                <span class="text-xs text-slate-400">Paciente de Ortodoncia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex items-center gap-1 text-amber-400 mb-3">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-600 text-sm italic mb-4">
+                            "Excelente atención en Río Seco. Me hicieron una endodoncia y no sentí absolutamente nada de dolor. Muy limpios y profesionales."
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand-100 text-brand-700 font-bold flex items-center justify-center text-sm">
+                                CR
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Carlos Condori</h4>
+                                <span class="text-xs text-slate-400">Paciente de Endodoncia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Price Estimator / Cotizador Section -->
+    <section id="cotizador" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brand-700 to-brand-600 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Calculadora Estimada</span>
+                    <h2 class="text-3xl font-extrabold mt-3">Cotiza tu Tratamiento Dental</h2>
+                    <p class="text-brand-100 text-sm mt-2">Selecciona los servicios que necesitas para obtener una estimación previa.</p>
+                </div>
+
+                <!-- Calculator Form -->
+                <div class="bg-white text-slate-800 p-6 rounded-2xl shadow-lg space-y-4">
+                    <label class="block text-xs font-bold text-slate-500 uppercase">Selecciona los Tratamientos:</label>
+                    
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" value="150" class="service-checkbox w-4 h-4 text-brand-600 rounded focus:ring-brand-500" onchange="calculateTotal()">
+                            <span class="text-sm font-medium text-slate-700">Limpieza Profunda (Profilaxis)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" value="120" class="service-checkbox w-4 h-4 text-brand-600 rounded focus:ring-brand-500" onchange="calculateTotal()">
+                            <span class="text-sm font-medium text-slate-700">Calza Estética (Resina)</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" value="350" class="service-checkbox w-4 h-4 text-brand-600 rounded focus:ring-brand-500" onchange="calculateTotal()">
+                            <span class="text-sm font-medium text-slate-700">Blanqueamiento LED</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" value="300" class="service-checkbox w-4 h-4 text-brand-600 rounded focus:ring-brand-500" onchange="calculateTotal()">
+                            <span class="text-sm font-medium text-slate-700">Pago Inicial Ortodoncia</span>
+                        </label>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs text-slate-500 font-medium block">Total Estimado:</span>
+                            <span id="total-price" class="text-3xl font-black text-brand-600">0 Bs.</span>
+                        </div>
+
+                        <button onclick="sendWhatsAppEstimate()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-xl transition shadow-md">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i> Consultar Disponibilidad
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-xs text-center text-brand-100 mt-4">* Los precios son referenciales y están sujetos a valoración clínica gratuita en consultorio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Resuelve tus Dudas</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-3">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                        <span>¿La primera consulta de evaluación tiene algún costo?</span>
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-1" class="hidden px-5 pb-5 text-sm text-slate-600">
+                        ¡No! En Dental Way la primera consulta y diagnóstico mediante cámara intraoral es completamente gratuita.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                        <span>¿Ofrecen facilidades de pago o cuotas para Brackets?</span>
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-2" class="hidden px-5 pb-5 text-sm text-slate-600">
+                        Sí, contamos con planes de cuotas mensuales súper accesibles para tratamientos de Ortodoncia, pagando únicamente por cada control mensual.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full text-left p-5 font-bold text-slate-800 flex justify-between items-center hover:bg-slate-50">
+                        <span>¿Atienden emergencias durante los fines de semana?</span>
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 transition-transform"></i>
+                    </button>
+                    <div id="faq-ans-3" class="hidden px-5 pb-5 text-sm text-slate-600">
+                        Atendemos los sábados en horario continuo de 08:30 a 20:00 en las tres sucursales. Además poseemos línea de urgencia telefónica.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Form / Contact Section -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-full">Reserva Fácil</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">Agenda tu Cita en Segundos</h2>
+                    <p class="text-slate-600">Completa el formulario y te enviaremos directamente a nuestro WhatsApp oficial con tus datos listos para confirmar tu turno.</p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-slate-700 font-medium text-sm">Elección directa de sucursal preferida</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center">
+                                <i data-lucide="check" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-slate-700 font-medium text-sm">Respuesta rápida y confirmación inmediata</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <form id="appointmentForm" onsubmit="handleFormSubmit(event)" class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nombre Completo</label>
+                            <input type="text" id="form-name" required placeholder="Ej. Juan Pérez" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-sm">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Teléfono / Celular</label>
+                                <input type="tel" id="form-phone" required placeholder="Ej. 71234567" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Sucursal Preferida</label>
+                                <select id="form-branch" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-sm">
+                                    <option value="La Ceja (Hotel Alexander)">La Ceja (Hotel Alexander)</option>
+                                    <option value="Río Seco">Río Seco</option>
+                                    <option value="Cruce Villa Adela">Cruce Villa Adela</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Servicio de Interés</label>
+                            <select id="form-service" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-sm">
+                                <option value="Consulta / Revisión General">Consulta / Revisión General</option>
+                                <option value="Ortodoncia (Brackets)">Ortodoncia (Brackets)</option>
+                                <option value="Diseño de Sonrisa">Diseño de Sonrisa</option>
+                                <option value="Blanqueamiento">Blanqueamiento Dental</option>
+                                <option value="Limpieza Dental">Limpieza Dental Profiláctica</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-5 h-5"></i> Enviar Solicitud por WhatsApp
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center text-white">
+                            <i data-lucide="smile" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">DENTAL WAY</span>
+                    </div>
+                    <p class="text-xs leading-relaxed">
+                        Consultorio odontológico dedicado a brindar atención humana y profesional de alta calidad en la ciudad de El Alto.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-4">Sucursales</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li>📍 <strong>La Ceja:</strong> Al lado de Hotel Alexander</li>
+                        <li>📍 <strong>Río Seco:</strong> Av. Juan Pablo II</li>
+                        <li>📍 <strong>Villa Adela:</strong> Cruce Villa Adela</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition">Tratamientos</a></li>
+                        <li><a href="#cotizador" class="hover:text-white transition">Cotizador Estimado</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-4">Redes Sociales</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand-600 hover:text-white transition">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-300 hover:bg-brand-600 hover:text-white transition">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+                <p>&copy; 2026 Dental Way - El Alto, Bolivia. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Switch Branch Tabs
+        function switchBranch(branch) {
+            // Hide all branch contents
+            document.querySelectorAll('.branch-content').forEach(el => el.classList.add('hidden'));
+            
+            // Remove active classes from tabs
+            document.querySelectorAll('.branch-tab').forEach(tab => {
+                tab.classList.remove('bg-brand-600', 'text-white', 'shadow-md');
+                tab.classList.add('bg-slate-100', 'text-slate-600');
+            });
+
+            // Show target branch & activate tab
+            document.getElementById(`branch-${branch}`).classList.remove('hidden');
+            const activeTab = document.getElementById(`tab-${branch}`);
+            activeTab.classList.add('bg-brand-600', 'text-white', 'shadow-md');
+            activeTab.classList.remove('bg-slate-100', 'text-slate-600');
+        }
+
+        // Image Comparison Slider Logic
+        const sliderBar = document.getElementById('slider-bar');
+        const overlayImg = document.getElementById('overlay-img');
+        let isDragging = false;
+
+        if (sliderBar && overlayImg) {
+            const container = sliderBar.parentElement;
+
+            const moveSlider = (x) => {
+                const rect = container.getBoundingClientRect();
+                let position = x - rect.left;
+                if (position < 0) position = 0;
+                if (position > rect.width) position = rect.width;
+
+                const percentage = (position / rect.width) * 100;
+                overlayImg.style.width = `${percentage}%`;
+                sliderBar.style.left = `calc(${percentage}% - 20px)`;
+            };
+
+            sliderBar.addEventListener('mousedown', () => isDragging = true);
+            window.addEventListener('mouseup', () => isDragging = false);
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.clientX);
+            });
+
+            // Touch events support for mobile devices
+            sliderBar.addEventListener('touchstart', () => isDragging = true);
+            window.addEventListener('touchend', () => isDragging = false);
+            window.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                moveSlider(e.touches[0].clientX);
+            });
+        }
+
+        // Calculator Total Estimation
+        function calculateTotal() {
+            const checkboxes = document.querySelectorAll('.service-checkbox');
+            let total = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    total += parseInt(cb.value);
+                }
+            });
+            document.getElementById('total-price').innerText = `${total} Bs.`;
+        }
+
+        function sendWhatsAppEstimate() {
+            const total = document.getElementById('total-price').innerText;
+            const message = encodeURIComponent(`Hola Dental Way, calculé un presupuesto estimado de ${total} en su página web y me gustaría reservar una consulta.`);
+            window.open(`https://wa.me/59169973619?text=${message}`, '_blank');
+        }
+
+        // FAQ Toggle
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (ans.classList.contains('hidden')) {
+                ans.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                ans.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Form Submit to WhatsApp
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const branch = document.getElementById('form-branch').value;
+            const service = document.getElementById('form-service').value;
+
+            const text = `Hola Dental Way, deseo agendar una cita.%0A%0A*Nombre:* ${name}%0A*Celular:* ${phone}%0A*Sucursal:* ${branch}%0A*Servicio:* ${service}`;
+            window.open(`https://wa.me/59169973619?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
